@@ -14,15 +14,18 @@ The data are divided into five folders
 ---
 
 Each of the folders relative to a research step contains;
+
    a single script "Main_script..." reporting the general operations necessary to obtain the output discussed in the paper;
    "Input" folders containing all the additional inputs used specifically for the step considered;
    "Function" folders reporting the functions used only in the step considered;
    "Result" folders containing a Matlab data repository file (.mat) with the raw data obtained by the analysis conducted in the step;
    "Plot" folders containing scripts to plot the figures included in the paper.
    
+   
 ---
 
 Step 3: Reservoir sediment management is divided into 2 part, with 2 dedicated folders:
+
     Folder "Part_1_flushing_design_optimization" contains the operations to run the multi-objective optimization of the reservoir flushing designs;
     Folder "Part_2_sensitivity_analysis" contains the operations to run a sensitivity analysis on the Pareto Optimal designs derived in Part 1.
     
