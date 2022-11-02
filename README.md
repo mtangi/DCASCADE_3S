@@ -30,6 +30,6 @@ Step 3: Reservoir sediment management is divided into 2 part, with 2 dedicated f
     
 ---
 
-The code to run the BORG Multi-objective evolutionary algorithm used in the paper is avaiable on request from http://borgmoea.org/
+The code to run the BORG Multi-objective evolutionary algorithm used in the paper is available on request from http://borgmoea.org/
 
 ---
