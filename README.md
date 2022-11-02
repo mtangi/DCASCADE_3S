@@ -15,7 +15,7 @@ The data are divided into five folders
 
 Each of the folders relative to a research step contains;
 
-   a single script "Main_script..." reporting the general operations necessary to obtain the output discussed in the paper;
+   A single script "Main_script..." reporting the general operations necessary to obtain the output discussed in the paper;
    "Input" folders containing all the additional inputs used specifically for the step considered;
    "Function" folders reporting the functions used only in the step considered;
    "Result" folders containing a Matlab data repository file (.mat) with the raw data obtained by the analysis conducted in the step;
