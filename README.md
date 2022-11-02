@@ -7,7 +7,7 @@ The data are divided into five folders
 
     Folder "DCASCADE_input" contains the input used for the simulations, including the 3S River network and the hydrological datasets;
     Folder "DCASCADE_functions" contains all the general functions called by D-CASCADE;
-    Folder "Step_1_Baseline_sediment_budget" contains the script and function used in Step 1: Baseline sediment budget definition, as described in the    paper;
+    Folder "Step_1_Baseline_sediment_budget" contains the script and function used in Step 1: Baseline sediment budget definition, as described in the paper;
     Folder "Step_2_Reservoir_siting" contains the script and function used in Step 2: Reservoir siting assessment, as described in the paper;
     Folder "Step_3_Reservoir_sediment_management" contains the script and function used in Step 3: Reservoir sediment management, as described in the paper.
     
