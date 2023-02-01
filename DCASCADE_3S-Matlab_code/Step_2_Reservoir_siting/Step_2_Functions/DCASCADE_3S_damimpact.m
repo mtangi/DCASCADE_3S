@@ -206,7 +206,7 @@ for t = 2:timescale-1
     %loop for all reaches, now that i have the Fi_r and thus can compute transfer rates for all reaches
     clear Qbi_tr_t
 
-    [ v_sed ] = velocity_EH( EnergySlope , Wac , v , h , minvel, phi ,psi_3S) ;
+    [ v_sed ] = velocity_EH( EnergySlope , Wac , v , h , minvel, phi) ;
 
     for n = NH
 
@@ -218,7 +218,14 @@ for t = 2:timescale-1
             
             % i sum the volumes transported in reach n with all the other
             % volumes mobilized by all the other reaches in time t
-            
+
+            % Sum the volumes transported from reach n with all the other
+            % volumes mobilized by all the other reaches at time t
+
+            Qbi_tr{t+1} = Qbi_tr{t+1} + single(Qbi_tr_t);
+            Q_out{t} =  Q_out{t} + Q_out_t;
+
+
             for c=1:length(psi_3S)
                 if setout(c) == 0 %if the volume does not leave throught the outlet
                     Qbi_tr{2}(:,reach_dest(c),c)  = Qbi_tr{2}(:,reach_dest(c),c) + V_mob(:,c);
