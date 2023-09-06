@@ -64,7 +64,7 @@ for i=1:length(years_ts)
 
     end
 
-    j=j+length_year+1 ;
+    j=j+length_year;
 end
 
 Qbi_input = cell(length(Q),1);
