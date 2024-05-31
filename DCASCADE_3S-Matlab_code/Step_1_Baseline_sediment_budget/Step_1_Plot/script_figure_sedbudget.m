@@ -1,6 +1,6 @@
 %% figure sed yield sensitivity analysis
 
-load('DCASCADE_3S-Matlab_code/Step_1_Baseline_sediment_budget/Result_Step_1/output_baseline_sed_budget.mat')
+load('DCASCADE_3S-Matlab_code/Step_1_Baseline_sediment_budget/Step_1_Result/output_baseline_sed_budget.mat')
 
 %% plot figure
 Fsize = 20;
@@ -11,7 +11,7 @@ sed_partID = [1 2];
 
 colrange = flip(jet(length(sed_D50)));
 
-txt = cellstr(num2str([1:length(sed_input_param_comb)]')); %txt = n days of flushing
+txt = cellstr(num2str([1:length(data_output_allcomb)]')); %txt = n days of flushing
 
 accepted_range_y = [17 25]; %accepted range of sed.yield according to field data
 
@@ -40,15 +40,15 @@ for i=1:2:length(sed_yield)
 end
 
 % plot figure
-for i=1:length(sed_input_param_comb(:,2 ))
+for i=1:length(data_output_allcomb(:,2 ))
     
-    if ~isempty(sed_input_param_comb{i,2}) && sed_input_param_comb{i, 2}(3)==1 && sed_input_param_comb{i, 2}(2)>0.01
+    if ~isempty(data_output_allcomb{i,2}) && data_output_allcomb{i, 2}(3)==1 && data_output_allcomb{i, 2}(2)>0.01
         
-        data(i,1) = mean(sed_input_param_comb{i, 1}{2, 2}(2:end)); %mena yield
+        data(i,1) = mean(data_output_allcomb{i, 1}{2, 2}(2:end)); %mena yield
           
-        data(i,2) = mean(sed_input_param_comb{i, 1}{3, 2}(2:end)); %mean D50
+        data(i,2) = mean(data_output_allcomb{i, 1}{3, 2}(2:end)); %mean D50
         
-        Fi_mean = mean(sed_input_param_comb{i, 1}{4, 2}(:,2:end),2); % sand percentage
+        Fi_mean = mean(data_output_allcomb{i, 1}{4, 2}(:,2:end),2); % sand percentage
         data(i,2) = sum(Fi_mean(1:3))*100;
         
         if sum(Fi_mean(1:3)) > 0.1 && data(i,1) >= accepted_range_y(1) && data(i,1) <= accepted_range_y(2)
@@ -56,11 +56,11 @@ for i=1:length(sed_input_param_comb(:,2 ))
             j=j+1;
         end
     
-        sz = sed_input_param_comb{i, 2}(1)*3; %size for sed. yield
+        sz = data_output_allcomb{i, 2}(1)*3; %size for sed. yield
         
-        col = colrange(sed_input_param_comb{i, 2}(2)==sed_D50,:); % color for D50in
+        col = colrange(data_output_allcomb{i, 2}(2)==sed_D50,:); % color for D50in
         
-        if sed_input_param_comb{i, 2}(3)==2 %marker for sed. delivery method
+        if data_output_allcomb{i, 2}(3)==2 %marker for sed. delivery method
             mrk = 'd'; else mrk = 'o';
         end
         
@@ -111,7 +111,7 @@ sed_partID = [1 2];
 
 colrange = flip(jet(length(sed_D50)));
 
-txt = cellstr(num2str([1:length(sed_input_param_comb)]')); %txt = n days of flushing
+txt = cellstr(num2str([1:length(data_output_allcomb)]')); %txt = n days of flushing
 
 accepted_range_y = [17 25]; %accepted range of sed.yield according to field data
 
@@ -145,15 +145,15 @@ for i=1:2:length(sed_yield)
 end
 
 % plot figure
-for i=1:length(sed_input_param_comb(:,2 ))
+for i=1:length(data_output_allcomb(:,2 ))
     
-    if ~isempty(sed_input_param_comb{i,2}) && sed_input_param_comb{i, 2}(3)==1 && sed_input_param_comb{i, 2}(2)>0.01
+    if ~isempty(data_output_allcomb{i,2}) && data_output_allcomb{i, 2}(3)==1 && data_output_allcomb{i, 2}(2)>0.01
         
-        data(i,1) = mean(sed_input_param_comb{i, 1}{2, 2}(2:end)); %mena yield
+        data(i,1) = mean(data_output_allcomb{i, 1}{2, 2}(2:end)); %mena yield
           
-        data(i,2) = mean(sed_input_param_comb{i, 1}{3, 2}(2:end)); %mean D50
+        data(i,2) = mean(data_output_allcomb{i, 1}{3, 2}(2:end)); %mean D50
         
-        Fi_mean = mean(sed_input_param_comb{i, 1}{4, 2}(:,2:end),2); % sand percentage
+        Fi_mean = mean(data_output_allcomb{i, 1}{4, 2}(:,2:end),2); % sand percentage
         data(i,2) = sum(Fi_mean(1:3))*100;
         
         if sum(Fi_mean(1:3)) > 0.1 && data(i,1) >= accepted_range_y(1) && data(i,1) <= accepted_range_y(2)
@@ -161,11 +161,11 @@ for i=1:length(sed_input_param_comb(:,2 ))
             j=j+1;
         end
     
-        sz = sed_input_param_comb{i, 2}(1)*3; %size for sed. yield
+        sz = data_output_allcomb{i, 2}(1)*3; %size for sed. yield
         
-        col = colrange(sed_input_param_comb{i, 2}(2)==sed_D50,:); % color for D50in
+        col = colrange(data_output_allcomb{i, 2}(2)==sed_D50,:); % color for D50in
         
-        if sed_input_param_comb{i, 2}(3)==2 %marker for sed. delivery method
+        if data_output_allcomb{i, 2}(3)==2 %marker for sed. delivery method
             mrk = 'd'; else mrk = 'o';
         end
         
@@ -210,8 +210,8 @@ set(gcf,'color','w');
 
 % plot pie charts
 
-Fi_in = cell2mat(cellfun(@(x)x{5,2},sed_input_param_comb(examplepieID,1),'UniformOutput',0))';
-Fi_out = cell2mat(cellfun(@(x)mean(x{4,2},2),sed_input_param_comb(examplepieID,1),'UniformOutput',0)');
+Fi_in = cell2mat(cellfun(@(x)x{5,2},data_output_allcomb(examplepieID,1),'UniformOutput',0))';
+Fi_out = cell2mat(cellfun(@(x)mean(x{4,2},2),data_output_allcomb(examplepieID,1),'UniformOutput',0)');
 
 piefontsize = 15;
 
@@ -222,7 +222,7 @@ for i=1:size(Fi_in,2)
 
     cmap = colormap(s, parula) ; %Create Colormap
     
-    title(['D50_{in} = ' num2str( sed_input_param_comb{examplepieID(i),2}(2) ) ' mm'],'FontSize',piefontsize+2)
+    title(['D50_{in} = ' num2str( data_output_allcomb{examplepieID(i),2}(2) ) ' mm'],'FontSize',piefontsize+2)
 
     %title(['D50_{in} = ' num2str( sed_input_param_comb{examplepieID(i),2}(2) ) ' mm' ' - ' 'Q_{s-in} = ' num2str( sed_input_param_comb{examplepieID(i),2}(1) ) ' Mt/y' ],'FontSize',piefontsize+2)
 

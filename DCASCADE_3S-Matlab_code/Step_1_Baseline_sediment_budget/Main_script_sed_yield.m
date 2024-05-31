@@ -20,17 +20,26 @@ addpath(genpath('DCASCADE_3S-Matlab_code'))
 sed_yield = 15:5:60;
 sed_D50 = [1 0.75 0.5 0.25 0.1 0.075 0.05 0.025 0.01 0.0075 0.005];
 
+%find all combinations of the vector
+% Use meshgrid to generate all combinations
+[A, B] = meshgrid(sed_yield,sed_D50);
+A = A(:);
+B = B(:);
+sed_input_param_comb = [A, B];
+
+%or if you have the Deep Learing Toolbox
+%sed_input_param_comb = combvec(sed_yield, sed_D50);
+
 %initialize output elements
-sed_input_param_comb = combvec(sed_yield, sed_D50);
 data_output_allcomb = cell(length(sed_input_param_comb),2);
 
 % run D-CASCADE for each scenario
 for s=1:length(sed_input_param_comb)
     
-    [data_output] = DCASCADE_3S_sedyield(sed_input_param_comb(:,s) );
+    [data_output] = DCASCADE_3S_sedyield(sed_input_param_comb(s,:) );
     
     data_output_allcomb{s,1} = data_output;
-    data_output_allcomb{s,2} = sed_input_param_comb(:,s);
+    data_output_allcomb{s,2} = sed_input_param_comb(s,:);
     
 end
 
