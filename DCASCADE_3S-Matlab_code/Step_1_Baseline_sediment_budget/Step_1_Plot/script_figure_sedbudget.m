@@ -44,7 +44,7 @@ for i=1:length(data_output_allcomb(:,2 ))
     
     if ~isempty(data_output_allcomb{i,2}) && data_output_allcomb{i, 2}(3)==1 && data_output_allcomb{i, 2}(2)>0.01
         
-        data(i,1) = mean(data_output_allcomb{i, 1}{2, 2}(2:end)); %mena yield
+        data(i,1) = mean(data_output_allcomb{i, 1}{2, 2}(2:end)); %mean yield
           
         data(i,2) = mean(data_output_allcomb{i, 1}{3, 2}(2:end)); %mean D50
         
