@@ -160,11 +160,10 @@ end
 outcum_tot = cell2mat(cellfun(@(x) sum(x,'all'), Q_out(1:timescale-1), 'UniformOutput',0));
 clear a tot_sed_year D50_year Fi_year
 for i=1:timescale/365
-
-    a(i) = sum(outcum_tot(i+(365)*(i-1):365*i-1));
+    a(i) = sum(outcum_tot(1+(365)*(i-1):365*i));
     tot_sed_year(i) = a(i)*2.6./1000000;
-    D50_year(i) = D_finder(  sum(cell2mat(cellfun(@(x) sum(x,1), Q_out(i+(365)*(i-1):365*i-1), 'UniformOutput',0)),1)'./a(i) ,psi_3S, 50 )'*1000;
-    Fi_year(:,i) = sum(cell2mat(cellfun(@(x) sum(x,1), Q_out(i+(365)*(i-1):365*i-1), 'UniformOutput',0)),1)'./a(i);
+    D50_year(i) = D_finder(  sum(cell2mat(cellfun(@(x) sum(x,1), Q_out(1+(365)*(i-1):365*i), 'UniformOutput',0)),1)'./a(i) ,psi_3S, 50 )'*1000;
+    Fi_year(:,i) = sum(cell2mat(cellfun(@(x) sum(x,1), Q_out(1+(365)*(i-1):365*i), 'UniformOutput',0)),1)'./a(i);
 end
  
 %% calculate  outcum_provenance_river
