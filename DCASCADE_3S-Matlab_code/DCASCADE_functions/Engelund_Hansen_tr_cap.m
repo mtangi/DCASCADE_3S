@@ -1,6 +1,6 @@
 function [ Qtr_cap, pci ] = Engelund_Hansen_tr_cap(Fi_r_reach , Slope_reach , Wac_reach, v_reach, h_reach , psi)
 
-%ENGELUND_HANSEN_TR_CAP returns the value of the transport capacity (in Kg/s) 
+%ENGELUND_HANSEN_TR_CAP returns the value of the transport capacity (in m3/s) 
 %for each sediment class in the reach measured using the Engelund and Hansen equations
 
 %% references
